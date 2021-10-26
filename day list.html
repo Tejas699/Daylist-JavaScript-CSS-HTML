@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: skyblue;">  
+<table style="margin-left: 50px;margin-top: 50px">
+    <tr>
+        <td>
+            <div class="converter-body">      
+            <input type="date" id="date" name="date">
+            <button onclick="showDay()"> submit</button>
+            <h1 style="color: red;">Days Start From Above Date</h1>    
+            <h3 id="data" style="color: green">
+            </h3>
+        </td>
+    </tr>
+</table> 
+
+</body>
+</html>
+
+<script script>
+    function showDay(){
+        var input = document.getElementById("date").value;
+        var date = new Date(input);
+        var arr = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+        var array2 = [];
+        var day = date.getDay();        
+        for(i=0;i<7;i++){
+            date.setDate(date.getDate()+1); 
+            array2[i] =arr[day] ;           
+            day = date.getDay();            
+        }
+        result = document.getElementById("data");
+        result.innerHTML = array2.join('<br>');        
+    }
+</script>
